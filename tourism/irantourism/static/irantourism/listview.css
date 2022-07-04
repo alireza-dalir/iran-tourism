@@ -1,0 +1,30 @@
+.items {
+    margin-left: 20rem;
+    max-width: 50%;
+    padding: 10px;
+    position: relative;
+}
+.item { 
+    list-style-type: none; 
+} 
+.item li { 
+    padding: 10px 0; 
+    border-bottom: 1px solid #add8e6; 
+    text-align: center; 
+    transition: padding-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear; 
+    -webkit-transition: padding-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear; 
+    -moz-transition: padding-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear; 
+    -o-transition: padding-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear; 
+    -ms-transition: padding-left 0.3s linear, font-weight 0.2s linear, color 0.3s linear; 
+} 
+.item li:first-child { 
+    border-top: 1px solid #909; 
+} .item li:hover { 
+    padding-left: 20px; 
+    font-weight: 600; 
+    color: #add8e6; 
+}
+
+.item a{
+    justify-content: center;
+}

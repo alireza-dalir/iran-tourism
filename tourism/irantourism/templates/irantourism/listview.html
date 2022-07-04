@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}
+{{title}} 
+{% endblock page_title %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'irantourism/listview.css'%}">
+{% endblock css_files %}  
+{% block page_body %}
+    {% include "irantourism/includes/header.html" with st=states%}
+
+    <div class="items"> 
+        <ul class="item"> 
+            {% if list_of_itemes != '' %}
+                {% for item in list_of_itemes  %}
+                <li>
+                    <a href="/cities-detail/{{item.pk}}">{{ item }}</a>
+                </li> 
+                {% endfor %}
+            {% else %}
+                {% for item in states  %}
+                <li>
+                    <a href="/cities/{{item.pk}}">{{ item }}</a>
+                </li> 
+                {% endfor %}
+            {% endif %}
+        </ul> 
+    </div>
+
+{% endblock page_body %}

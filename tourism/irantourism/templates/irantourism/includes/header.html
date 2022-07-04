@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'irantourism/header.css'%}" />
+
+ <body>
+   <nav class="navbar">
+     <!-- NAVIGATION MENU -->
+     <ul class="nav-links">
+
+       <!-- NAVIGATION MENUS -->
+       <div class="menu">
+         <li><a href="/">خانه</a></li>
+         <li class="services">
+           <a href="/all-cities"> استان ها</a>
+           <!-- DROPDOWN MENU -->
+           <ul class="dropdown">
+           {% for state in st %}
+              <li><a href="/cities/{{state.pk}}">{{state}} </a></li>
+           {% endfor %}
+           </ul>
+         </li>
+         <li><a href="/attractions">جاذبه ها</a></li>
+         <li><a href="/hotelrestaurant">هتل و رستوران</a></li>
+         <li><a href="/souvenir">فروشگاه سوغات</a></li>
+       </div>
+     </ul>
+   </nav>
+ </body>

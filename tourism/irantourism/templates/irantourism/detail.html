@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}
+{{title}} 
+{% endblock page_title %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'irantourism/detail.css'%}">
+{% endblock css_files %}  
+{% block page_body %}
+    <div>
+        {% include "irantourism/includes/header.html" with st=states %}
+    </div>
+    
+    <div>
+        {% for item in city_tour %}
+        <div class="list-item">
+            <div class="item-pic">
+                <img src="{{item.image.url}}"></img>
+            </div>
+            <div class="item-title">
+                <h2>{{item.name}}</h2>
+            </div>
+            <div class="item-detail">
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for item in city_souv %}
+        <div class="list-item">
+            <div class="item-pic">
+                <img src="{{item.image.url}}"></img>
+            </div>
+            <div class="item-title">
+                <h2>{{item.name}}</h2>
+            </div>
+            <div class="item-detail">
+                <p>{{ item.description }}</p>
+                <p>{{ item.phone_num }} : شماره تلفن</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for item in city_hotel %}
+        <div class="list-item">
+            <div class="item-pic">
+                <img src="{{item.image.url}}"></img>
+            </div>
+            <div class="item-title">
+                <h2>{{item.name}}</h2>
+            </div>
+            <div class="item-detail">
+                <p>{{ item.description }}</p>
+                <p>{{ item.phone_num }} : شماره تلفن</p>
+                <p>  آدرس : {{ item.adress }} </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+ 
+
+{% endblock page_body %}

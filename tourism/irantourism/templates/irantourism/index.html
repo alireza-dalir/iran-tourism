@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}
+index 
+{% endblock page_title %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'irantourism/index.css'%}">
+{% endblock css_files %}    
+
+{% block page_body %}
+    
+
+    <div class="grid-container">
+        <div class="item1">
+            {% include "irantourism/includes/header.html" with st=states %}
+        </div>
+        <div class="item2">
+            <div class="column">
+                {% for item in list_of_itemes %}
+                    <div class="news-item">
+                        <div class="news-pic">
+                            <img src="{{item.image.url}}"></img>
+                        </div>
+                        <div class="news-title">
+                            <h3>{{item.title}}</h3>
+                        </div>
+                        <div class="news-detail">
+                            <p>{{ item.detail }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="item3">
+            {% include "irantourism/includes/slideshow.html" %}
+        </div>  
+        <div class="item5">
+            <div class="column">
+                {% for item in travel %}
+                    {% if item.is_visible %}
+                    <div class="list-item">
+                        <div class="item-pic">
+                            <img src="{{item.image.url}}"></img>
+                        </div>
+                        <div class="item-title">
+                            <h2>{{item.name}}</h2>
+                        </div>
+                        <div class="item-detail">
+                            <p>{{ item.description }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="item4">
+            <form action="/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button>ذخیره</button>
+            </form>
+    </div>
+{% endblock page_body %}
